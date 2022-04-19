@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ViniciusEderman/CrudTest/issues"
   },
-  "homepage": "https://github.com/ViniciusEderman/CrudTest#readme"
+  "homepage": "https://github.com/ViniciusEderman/CrudTest#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
