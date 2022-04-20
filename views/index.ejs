@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Lista de Tarefas</title>
-</head>
-<body>
-   
-    <form action="/create" method="post">
-        <input type="text" name="task" id="task" placeholder="Insira suas atividades">
-        <button id="addButton" type="submit">Inserir</button>
-    </form>
+  </head>
+  <body>
 
+    <header>
+      <% if(task == null) { %>
+      <form action="/create" method="post">
+        <input
+          type="text"
+          name="task"
+          id="task"
+          placeholder="Insira suas atividades"
+        />
+        <button id="addButton" type="submit">Inserir</button>
+      </form>
+      <% }else{ %>
+      <form action="/updateOne/<%= task._id %>" method="post">
+        <input type="text" name="task" id="task" value="<%= task.task %>" />
+        <button id="addButton" type="submit">Update</button>
+      </form>
+      <% } %>
+    </header>
+
+    <section id="tasks">
+      <ul>
+        <% tasksList.forEach((task) => { %>
+        <li>
+          <%= task.task %> | <%= task.date.toLocaleDateString('pt-BR') %>
+          <a href="/getById/<%= task._id %>/update">Editar</a>
+          <a href="/getById/<%= task._id %>/delete">Delete</a>
+        </li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <% if(taskDelete != null) { %>
+    <section id="modal">
+        <div id="card">
+          <a href="/">X</a>
+          <h2>Tem certeza? '-'</h2>
+          <hr>
+          <p>Tem certeza que deseja deletar a tarefa: <%= taskDelete.task %>? Cuidado para não estar apagando por engano.</p>
+          <a href="/">Cancelar</a>
+          <a href="/deleteOne/<%= taskDelete._id %>">Confirmar</a>
+        </div>
+    </section>
+    <% } %>
     <script src="script.js"></script>
-</body>
+
+  </body>
 </html>
