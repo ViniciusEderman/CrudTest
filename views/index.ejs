@@ -9,6 +9,15 @@
     <title>Lista de Tarefas</title>
   </head>
   <body>
+
+    <% if(message != "") {%> 
+      <section class="message message-<%= type %>">
+      <p><%= message %></p>
+      <span id="closeMessage"><i class="bi bi-x-square"></i></span>
+      </section>
+    <% } %>
+  
+
     <header>
       <% if(task == null) { %>
       <h1>Lista de Tarefas</h1>
@@ -28,9 +37,9 @@
     <section id="tasks">
       <ul>
         <% tasksList.forEach((task) => { %>
-        <li>
+        <li class="check-<%= task.check %>">
           <div>
-            <a href="/"><%= task.task %></a>
+            <a href="/check/<%= task._id %>" class="check-<%= task.check %>"><%= task.task %></a>
             <spam>Data de Criação:<%= task.date.toLocaleDateString('pt-BR') %></spam>
           </div>
           <div>
