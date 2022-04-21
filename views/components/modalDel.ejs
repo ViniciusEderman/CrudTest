@@ -1,0 +1,18 @@
+<section id="modal">
+    <div id="card">
+    <div>
+      <h2>Tem certeza?    '-'</h2>
+      <a id="fechar" href="/">Voltar ao menu <i class="bi bi-x-square"></i></a>
+    </div id="head">  
+      <hr/>
+      <br>
+      <p>Tem certeza que deseja deletar a tarefa:<br> <%= task.task %></p>
+        <br>
+        <p>Cuidado para não estar apagando por engano.</p> 
+        <br>
+      <div id="btns">
+        <a id="btnCancelar" href="/">Cancelar</a>
+        <a id="btnConfirmar" href="/deleteOne/<%= task._id %>">Confirmar</a>
+      </div>  
+    </div>
+  </section>

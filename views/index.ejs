@@ -20,17 +20,9 @@
 
     <header>
       <% if(task == null) { %>
-      <h1>Lista de Tarefas</h1>
-      <form action="/create" method="post">
-        <input type="text" name="task" id="task" placeholder="Insira Aqui" />
-        <button id="addButton" type="submit">Inserir</button>
-      </form>
-      <% }else{ %>
-      <h1>Edite sua Atividade:</h1>
-      <form action="/updateOne/<%= task._id %>" method="post">
-        <input type="text" name="task" id="task" value="<%= task.task %>" />
-        <button id="UpdateButton" type="submit">Update</button>
-      </form>
+        <%- include('./components/form', {titleForm: "Lista de Tarefas", action: "create", value: "", idBtn: "addButton", nameBtn: "Inserir"}) %>
+      <% } else{ %>
+        <%- include('./components/form', {titleForm: "Edita Sua Tarefa", action: `updateOne/${task._id}`, value: task.task, idBtn: "UpdateButton", nameBtn: "Update"}) %>
       <% } %>
     </header>
 
@@ -52,25 +44,9 @@
     </section>
 
     <% if(taskDelete != null) { %>
-    <section id="modal">
-      <div id="card">
-      <div>
-        <h2>Tem certeza?    '-'</h2>
-        <a id="fechar" href="/">Voltar ao menu <i class="bi bi-x-square"></i></a>
-      </div id="head">  
-        <hr/>
-        <br>
-        <p>Tem certeza que deseja deletar a tarefa:<br> <%= taskDelete.task %></p>
-          <br>
-          <p>Cuidado para não estar apagando por engano.</p> 
-          <br>
-        <div id="btns">
-          <a id="btnCancelar" href="/">Cancelar</a>
-          <a id="btnConfirmar" href="/deleteOne/<%= taskDelete._id %>">Confirmar</a>
-        </div>  
-      </div>
-    </section>
+        <%- include('./components/modalDel', {task: taskDelete}) %>
     <% } %>
+      
     <script src="script.js"></script>
   </body>
 </html>
