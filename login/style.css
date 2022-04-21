@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Numans');
+@import url("https://fonts.googleapis.com/css?family=Numans");
 
-html, body {
+html,
+body {
   background-color: #a0bcc8;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
-  font-family: 'Numans', sans-serif;
+  font-family: "Numans", sans-serif;
 }
 
 .container {
@@ -24,7 +25,7 @@ html, body {
 .social_icon span {
   font-size: 50px;
   margin-left: 10px;
-  color: #FFC312;
+  color: #ffc312;
 }
 
 .social_icon span:hover {
@@ -44,7 +45,7 @@ html, body {
 
 .input-group-prepend span {
   width: 50px;
-  background-color: #FFC312;
+  background-color: #ffc312;
   color: black;
   border: 0 !important;
 }
@@ -52,11 +53,10 @@ html, body {
 input:focus {
   outline: 0 0 0 0 !important;
   box-shadow: 0 0 0 0 !important;
-
 }
 
 .entra button {
-  background-color: #FFC312;
+  background-color: #ffc312;
   outline: none;
 }
 
@@ -73,7 +73,7 @@ input:focus {
 
 .login_btn {
   color: black;
-  background-color: #FFC312;
+  background-color: #ffc312;
   width: 100px;
 }
 
